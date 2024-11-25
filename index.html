@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Guide</title>
+    <style>
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-right: 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #f4a261;
+        }
+
+        header input {
+            padding: 5px;
+            width: 200px;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('city.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero .cta-buttons button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 5px;
+            background-color: #555;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .hero .cta-buttons button:hover {
+            background-color: #f4a261;
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        section h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        section ul li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        section button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        section button:hover {
+            background-color: #f4a261;
+        }
+
+        #job-guide, #tourist-guide {
+            background-color: #f4f4f4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        /* Slider Effect */
+        .slider {
+            overflow: hidden;
+        }
+
+        .slider-content {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            background-color: #ddd;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .slider-buttons button {
+            margin: 0 5px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slider-buttons button:hover {
+            background-color: #f4a261;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>City Guide</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="https://monika6830.github.io/job_fined/">Jobs</a></li>
+                <li><a href="https://monika6830.github.io/student_internship/">Students</a></li>
+                <li><a href="https://monika6830.github.io/student_guide/">Tourists</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+        <input type="text" placeholder="Search...">
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Explore Jobs, Internships & Tourist Attractions in [City Name]</h2>
+        <div class="cta-buttons">
+            <button onclick="location.href='https://monika6830.github.io/job_fined/'">Find Jobs</button>
+            <button onclick="location.href='https://monika6830.github.io/student_internship/'">Student Internships</button>
+            <button onclick="location.href='https://monika6830.github.io/student_guide/'">Tourist Spots</button>
+        </div>
+    </section>
+
+    <!-- Job Seeker Section -->
+    <section id="job-guide">
+        <h3>Job Opportunities</h3>
+        <div class="slider">
+            <div class="slider-content" id="job-slider">
+                <div class="slide">Software Developer at TechCorp</div>
+                <div class="slide">Data Analyst at DataCo</div>
+                <div class="slide">Web Designer at DesignPro</div>
+            </div>
+        </div>
+        <div class="slider-buttons">
+            <button onclick="moveSlider('job-slider', -1)">&#8592;</button>
+            <button onclick="moveSlider('job-slider', 1)">&#8594;</button>
+        </div>
+    </section>
+
+    <!-- Student Guide Section -->
+    <section id="student-guide">
+        <h3>Student Opportunities</h3>
+        <ul>
+            <li>Marketing Intern at MarketX</li>
+            <li>Software Developer Intern at CodeWorks</li>
+            <li>Online Coding Bootcamp</li>
+        </ul>
+    </section>
+
+    <!-- Tourist Guide Section -->
+    <section id="tourist-guide">
+        <h3>Top Tourist Attractions</h3>
+        <ul>
+            <li>City Central Park</li>
+            <li>The City Café</li>
+            <li>Historical Museum</li>
+        </ul>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 City Guide. All rights reserved.</p>
+        <p>Contact us at: info@cityguide.com</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlider(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            const slides = slider.children.length;
+
+            currentIndex = (currentIndex + direction + slides) % slides;
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
+
+</body>
+</html>
